@@ -11,8 +11,9 @@ To start the application follow these steps:
 3. cd into client/
 4. run npm start
 
-The backend can be reached on localhost:4000 (/api or /auth)
-The client can be reached on localhost:3000
+The backend can be reached on localhost:4000 (/api or /auth).
+
+The client can be reached on localhost:3000.
 
 ### Backend Instructions
 To run the backend, run npm install and then node server in the backend folder. At the moment the backend only provides an API for interacting with the database. This api works as follows:

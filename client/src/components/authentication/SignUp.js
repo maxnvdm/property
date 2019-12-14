@@ -1,31 +1,45 @@
 import React, { Component } from 'react'
-
+import axios from 'axios';
 
 
 class SignUp extends Component {
-    state={
-        firstName:'',
-        lastName:'',
-        email:'',
-        password:'',
-        
+    constructor(props){
+        super(props);
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
+        this.state={
+            fullname:'',
+            email:'',
+            password:'',
+        }
     }
+
 /**update state using unique id */
     handleChange=(e)=>{
         this.setState({
             [e.target.id]:e.target.value
-
         })
 
     }
 /**log submitted info */
     handleSubmit=(e)=>{
         e.preventDefault();
-        this.props.SignUp(this.state)
-        
 
-        
+        const user = {
+            fullname: this.state.fullname,
+            email: this.state.email,
+            password: this.state.password
+        }
+
+        console.log(user);
+
+        axios.post('http://localhost:4000/auth/signup', user).then(res => console.log(res.data));
+
+        window.location = '/'
     }
+
     render() {
         
         return (
@@ -36,13 +50,8 @@ class SignUp extends Component {
                 <form onSubmit={this.handleSubmit} className="white">
 
                     <div className="input-field">
-                        <label htmlFor="firstName">First Name</label>
-                        <input type="text" id="firstName" onChange={this.handleChange}/>
-                    </div>
-
-                    <div className="input-field">
-                        <label htmlFor="lastName">Last Name</label>
-                        <input type="text" id="lastName" onChange={this.handleChange}/>
+                        <label htmlFor="fullname">Full Name</label>
+                        <input type="text" id="fullname" onChange={this.handleChange}/>
                     </div>
 
                     <div className="input-field">
@@ -56,11 +65,9 @@ class SignUp extends Component {
                     </div>
 
                     <div className="input-field">
-                        <label htmlFor="password">Confirm Password</label>
-                        <input type="password" id="password" onChange={this.handleChange}/>
+                        <label htmlFor="passwordConfirm">Confirm Password</label>
+                        <input type="password" id="passwordConfirm" onChange={this.handleChange}/>
                     </div>
-
-                    
 
                     <div className="input-field">
                         <button className="btn black lighten-1 z-depth-0">Sign Up</button>

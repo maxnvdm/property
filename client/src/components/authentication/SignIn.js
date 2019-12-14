@@ -5,8 +5,8 @@ class SignIn extends Component {
     state={
         email:'',
         password:''
-
     }
+
     /**update state using unique id */
     handleChange=(e)=>{
         this.setState({
@@ -42,10 +42,12 @@ class SignIn extends Component {
                         <div className="input-field">
                         <h6 className="grey-text text-lighten-1">Forgot Password?</h6>
                             <button className="btn black lighten-1 z-depth-0">Login</button>
-                           
-                            
                         </div>
                 </form>
+                <div>
+                    <h6>Or login useing...</h6>
+                    <a className="google-btn" href="/auth/google">Google+</a>
+                </div>
             </div>
         )
     }

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
-// const cors = require('cors');
+ const cors = require('cors');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 
@@ -32,10 +32,11 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use('/api', require('./routes/api'));
-
 app.use('/auth', require('./routes/auth'));
+app.use("/testAPI", require('./routes/testAPI'));
 
 // error handling middleware
 app.use(function(err, req, res, next){
@@ -47,3 +48,4 @@ app.use(function(err, req, res, next){
 app.listen(process.env.port || 4000, function(){
     console.log('now listening for requests');
 });
+

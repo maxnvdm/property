@@ -4,6 +4,16 @@ This project is a team effort at creating a property 24 application using the Re
 ## Getting Started
 The following section explains how to make use of the different modules.
 
+### Running the App
+To start the application follow these steps:
+1. cd into backend/
+2. run npm start
+3. cd into client/
+4. run npm start
+
+The backend can be reached on localhost:4000 (/api or /auth)
+The client can be reached on localhost:3000
+
 ### Backend Instructions
 To run the backend, run npm install and then node server in the backend folder. At the moment the backend only provides an API for interacting with the database. This api works as follows:
 

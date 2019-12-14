@@ -36,6 +36,6 @@ router.get('/:prop', function(req, res, next){
     Property.findById({_id: req.params.prop}).then(function(prop){
         res.send(prop);
     }).catch(next);
-})
+});
 
 module.exports = router;

@@ -22,7 +22,6 @@ router.post('/signup', function(req, res, next){
     }).catch(next);
 });
 
-
 // auth with google
 router.get('/google', passport.authenticate('google', {
     scope: ['profile', 'email']
@@ -32,4 +31,10 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
     res.redirect('/profile');
 });
 
+// test function to return users in database
+router.get('/', (req, res, next) => {
+    User.find({}).then(function(users){
+        res.json(users);
+    }).catch(next);
+});
 module.exports = router

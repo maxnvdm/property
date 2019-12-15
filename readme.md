@@ -40,3 +40,5 @@ To edit a property, make a PUT request to localhost:4000/api/propertyID, where p
 To delete a property, make a DELETE request to localhost:4000/api/propertyID, where propertyID is the ID of the property to be deleted.
 
 To obtain the information for a single property, make a GET request to localhost:4000/api/propertyID. 
+
+To obtain a list of all registered users (for testing purposes, only available during development), make a GET request to localhost:4000/auth.

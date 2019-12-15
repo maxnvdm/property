@@ -28,7 +28,7 @@ router.get('/google', passport.authenticate('google', {
 }));
 
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-    res.redirect('/profile');
+    res.redirect('http://localhost:3000/');
 });
 
 // test function to return users in database

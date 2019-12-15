@@ -22,15 +22,15 @@ passport.use(
 
     }, (accessToken, refreshToken, profile, email, done) => {
         // check if user already exists in db
-        User.findOne({googleId: email.id}).then((currentUser) => { 
+        User.findOne({email: email.emails[0].value}).then((currentUser) => { 
             if(currentUser){
                 // user already signed up
                 done(null, currentUser);
             } else {
                 // if not, create new user in db
                 new User({
-                    username: email.displayName,
-                    googleId: email.id
+                    fullname: email.displayName,
+                    email: email.emails[0].value,
                 }).save().then((newUser) => {
                     done(null, newUser);
                 });

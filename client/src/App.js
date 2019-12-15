@@ -6,8 +6,10 @@ import ProjectDetails from './components/projects/ProjectDetails'
 import SignIn from './components/authentication/SignIn'
 import SignUp from './components/authentication/SignUp'
 import Contact from './components/projects/Contact'
+import queryString from "query-string";
 
 class  App extends Component {
+
   render(){
     return (
      <BrowserRouter>  

@@ -6,6 +6,10 @@ import ProjectDetails from './components/projects/ProjectDetails'
 import SignIn from './components/authentication/SignIn'
 import SignUp from './components/authentication/SignUp'
 import Contact from './components/projects/Contact'
+import Viewbell from './components/projects/Viewbell'
+import Commercial from './components/projects/Commercial'
+import ListPrivately from './components/projects/ListPrivately'
+
 import queryString from "query-string";
 
 class  App extends Component {
@@ -21,6 +25,10 @@ class  App extends Component {
             <Route path='/signin' component={SignIn}/>
             <Route path='/signup' component={SignUp}/>
             <Route path='/contact' component={Contact}/>
+           <Route path='/viewbell' component={Viewbell}/>
+            <Route path='/commercial' component={Commercial}/>
+            <Route path='/projectdetails' component={ProjectDetails}/>
+            <Route path='/listprivately' component={ListPrivately}/>
           </Switch>
         </div>
 

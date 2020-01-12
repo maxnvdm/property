@@ -12,11 +12,12 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 // const profileRoutes = require('./routes/profile');
 
-const API_PORT = 3001;
+const API_PORT = 4000;
 const app = express();
 
 // connect to the database
-mongoose.connect(keys.mongodb.dbURI, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.Promise = global.Promise;
+mongoose.connect(keys.mongodb.dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(res => console.log("Connected to DB")).catch(err => console.log(err));
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -51,6 +52,6 @@ app.use(function(err, req, res, next){
 // listen for requests
 const port = process.env.PORT || 4000;
 app.listen(port, function(){
-  console.log(`Password generator listening on ${port}`);
+  console.log(`Backend listening on ${port}`);
 });
 

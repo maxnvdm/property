@@ -4,7 +4,8 @@
   "description": "This project is a team effort at creating a property 24 application using the React, Express, Node JS, and MongoDB (MERN Stack).",
   "main": "index.js",
   "scripts": {
-    "start": "cd backend && npm install && node server.js",
+    "start": "cd backend && npm install && npm start",
+    "client": "cd client && npm install && npm start",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {

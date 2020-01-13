@@ -28,7 +28,7 @@ router.get('/google', passport.authenticate('google', {
 }));
 
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-    res.redirect('http://localhost:3000/');
+    res.redirect('https://property24-app.herokuapp.com/');
 });
 
 // test function to return users in database

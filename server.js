@@ -41,7 +41,6 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.use('/api', require('./routes/api'));
 app.use('/auth', require('./routes/auth'));
-app.use("/testAPI", require('./routes/testAPI'));
 
 // error handling middleware
 app.use(function(err, req, res, next){

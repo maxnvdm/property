@@ -37,7 +37,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.use('/api', require('./routes/api'));
 app.use('/auth', require('./routes/auth'));
@@ -47,6 +47,10 @@ app.use("/testAPI", require('./routes/testAPI'));
 app.use(function(err, req, res, next){
     console.log(err); // to see properties of message in our console
     res.status(422).send({error: err.message});
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 // listen for requests

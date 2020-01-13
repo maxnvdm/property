@@ -31,7 +31,7 @@ class ProjectList extends Component{
       }
     
     componentDidMount() {
-        axios.get('http://localhost:4000/api')
+        axios.get('/api')
             .then(response => {
                 console.log(response.data);
                 console.log(response.headers);

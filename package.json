@@ -1,30 +1,25 @@
 {
-  "name": "property",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "This project is a team effort at creating a property 24 application using the React, Express, Node JS, and MongoDB (MERN Stack).",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd backend && npm install && npm start",
-    "client": "cd client && npm install && npm start",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/maxnvdm/property.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/maxnvdm/property/issues"
-  },
-  "homepage": "https://github.com/maxnvdm/property#readme",
   "dependencies": {
-    "concurrently": "^5.0.2",
-    "mdbreact": "^4.24.0",
-    "react-awesome-modal": "^2.0.5",
-    "react-bell-icon": "^1.0.1",
-    "react-bootstrap-carousel": "^4.0.2",
-    "react-card-carousel": "^1.1.3"
+    "body-parser": "^1.19.0",
+    "cookie-session": "^1.3.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.0",
+    "passport": "^0.4.1",
+    "passport-google-oauth": "^2.0.0",
+    "passport-google-oauth20": "^2.0.0"
+  },
+  "engines": {
+    "node": "12.13.1"
   }
 }

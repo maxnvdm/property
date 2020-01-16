@@ -2,6 +2,12 @@ const express = require ('express');
 const router = express.Router();
 const User = require('../models/user-models');
 const passport = require('passport');
+// const bcrypt = require("bcryptjs");
+// const jwt = require("jsonwebtoken");
+
+// Load input validation
+const validateRegisterInput = require("../validation/register");
+const validateLoginInput = require("../validation/login");
 
 // Log in
 router.get('/login', (req,res) => {
@@ -17,8 +23,34 @@ router.get('/logout', (req, res) => {
 
 // Sign up
 router.post('/signup', function(req, res, next){
-    User.create(req.body).then(function(user){
-        res.send(user);
+
+    const { errors, isValid } = validateRegisterInput(req.body);
+
+    // Check validation
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+    User.findOne({email: req.body.email}).then(function(user){
+        if (user) {
+            return res.status(400).json({ email: "Email already exists"});
+        } else {
+            const newUser = new User({
+                name: req.body.name,
+                email: req.body.email,
+                password: req.body.password
+            });
+
+            // Hash password before saving in database
+            // bcrypt.genSalt(10, (err, salt) => {
+            //     bcrypt.hash(newUser.password, salt, (err, hash) => {
+            //         if (err) throw err;
+            //         newUser.password = hash;
+            //         newUser.save()
+            //         .then(user => res.json(user))
+            //         .catch(err => console.log(err));
+            //     });
+            // });
+        }
     }).catch(next);
 });
 

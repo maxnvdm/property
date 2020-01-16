@@ -10,17 +10,16 @@ import {
 
 const ProjectSummary = props =>(
     <div>
-    <Link to={'/projectdetails/:'+ props.property._id}>
-    
-      <Card>
+      <Card text="black">
+      <Link to={'/projectdetails/:'+ props.property._id} style={{textDecoration: 'none', color : 'black'}}>
         <CardImg top width="100%" src="/img/penthouse.jpg" alt="Card image cap" />
         <CardBody>
           <CardTitle>{props.property.name}</CardTitle>
           <CardSubtitle>{props.property.price}</CardSubtitle>
           <CardText>{props.property.description}</CardText>
         </CardBody>
+        </Link>
       </Card>
-    </Link>
     </div>
 )
 

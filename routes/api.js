@@ -33,7 +33,8 @@ router.delete('/:prop', function(req, res, next){
 
 // get a single property
 router.get('/:prop', function(req, res, next){
-    Property.findById({_id: req.params.prop}).then(function(prop){
+    //console.log(req.params.prop.substring(1));
+    Property.findById({_id: req.params.prop.substring(1)}).then(function(prop){
         res.send(prop);
     }).catch(next);
 });

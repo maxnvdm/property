@@ -10,6 +10,8 @@ import {
 
 const ProjectSummary = props =>(
     <div>
+    <Link to={'/projectdetails/:'+ props.property._id}>
+    
       <Card>
         <CardImg top width="100%" src="/img/penthouse.jpg" alt="Card image cap" />
         <CardBody>
@@ -18,6 +20,7 @@ const ProjectSummary = props =>(
           <CardText>{props.property.description}</CardText>
         </CardBody>
       </Card>
+    </Link>
     </div>
 )
 
@@ -30,7 +33,7 @@ class ProjectList extends Component{
         }
       }
     
-    componentDidMount() {
+    async componentDidMount() {
         axios.get('/api')
             .then(response => {
                 console.log(response.data);
@@ -45,14 +48,15 @@ class ProjectList extends Component{
 
     propertyList() {
         return this.state.properties.map(property => {
-            return <ProjectSummary property={property} key={property._id}/>;
+            return  <ProjectSummary property={property} key={property._id}/>;
           })
     }
     
     render() {
         return(
             <div className="project-list section">
-                { this.propertyList() }
+              { this.state.properties === [] && <p>Loading properties...</p>}
+              { this.propertyList() }
             </div>
         )
     }

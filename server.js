@@ -6,7 +6,6 @@ const keys = require('./config/keys');
 const path = require('path');
 
 // TODO: implement the following
-const authRoutes = require('./routes/auth');
 const passportSetup = require('./config/passport-setup');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
@@ -33,6 +32,9 @@ app.use(cookieSession({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 app.use(cors());
 

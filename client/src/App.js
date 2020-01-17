@@ -10,12 +10,13 @@ import Viewbell from './components/projects/Viewbell'
 import Commercial from './components/projects/Commercial'
 import ListPrivately from './components/projects/ListPrivately'
 
-import queryString from "query-string";
-
+import { Provider } from "react-redux";
+import store from "./store"; 
 class  App extends Component {
 
   render(){
     return (
+    <Provider store={store}>
      <BrowserRouter>  
         <div className="App">
           <Navbar/>
@@ -33,6 +34,7 @@ class  App extends Component {
         </div>
 
       </BrowserRouter>
+      </Provider>
     );
   }
 }

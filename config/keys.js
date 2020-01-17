@@ -10,5 +10,9 @@ module.exports = {
 
     session: {
         cookieKey: 'encryptionkeyforcookie'
+    },
+
+    token: {
+        secret : 'secret'
     }
 };

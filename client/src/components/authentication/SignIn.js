@@ -84,7 +84,7 @@ class SignIn extends Component {
                 </form>
                 <div>
                     <h6>Or login useing...</h6>
-                    <a className="google-btn" href="http://localhost:4000/auth/google">Google+</a>
+                    <a className="google-btn" href="https://property24-app.herokuapp.com/auth/google">Google+</a>
                 </div>
             </div>
         )

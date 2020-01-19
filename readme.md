@@ -6,14 +6,14 @@ The following section explains how to make use of the different modules.
 
 ### Running the App
 To start the application follow these steps:
-1. cd into backend/
+1. Navigate to the root directory (property/)
 2. run npm start
-3. cd into client/
+3. In a seperate terminal window, cd into property/client/
 4. run npm start
 
-The backend can be reached on localhost:4000 (/api or /auth).
+The backend can be reached on localhost:4000 (/api for database interactions or /auth for log in and sign up)
 
-The client can be reached on localhost:3000.
+The client can be reached on localhost:3000
 
 ### Backend Instructions
 To run the backend, run npm install and then node server in the backend folder. At the moment the backend only provides an API for interacting with the database. This api works as follows:
